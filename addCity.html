@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Location</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+<link rel="stylesheet" href="style.css">
+  <body>
+    <nav
+      class="navbar"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div class="navbar-brand">
+        <a class="navbar-item" href="#"
+          ><i class="fa-regular fa-compass fa-2xl"></i>
+        </a>
+        <h1 class="navbar-item is-size-4">Add a City</h1>
+
+        <a
+          id="burger"
+          role="button"
+          class="navbar-burger"
+          aria-label="menu"
+          aria-expanded="false"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="navbar-menu" id="nav-links">
+        <div class="navbar-end">
+          <a href="index.html" class="menuLinks navbar-item"
+            ><i class="fa-solid fa-house-user pr-2"></i> Home</a
+          >
+          <a href="#" class="menuLinks navbar-item">Add city</a>
+          <a href="about.html" class="menuLinks navbar-item">The traveler </a>
+        </div>
+      </div>
+    </nav>
+
+      <!-- Input Form -->
+
+    <div class="form-wrapper">
+      <div class="block">
+        <p>
+          <input class="input" type="text" id="city" placeholder="city" />
+        </p>
+      </div>
+
+      <div class="block">
+        <p>
+          <input class="input" type="text" id="country" placeholder="country" />
+        </p>
+      </div>
+
+      
+      <div class="block">
+        <p>
+          <input
+          class="input"
+          type="date"
+          id="date-arrival"
+          placeholder="date of arrival"
+          onfocus="(this.type='date')" 
+          onblur="(this.type='text')"
+          />
+        </p>
+      </div>
+
+      <div class="block">
+        <p>
+          <input
+          class="input"
+          type="date"
+          id="date-departure"
+          placeholder="date of departure"
+          onfocus="(this.type='date')" 
+          onblur="(this.type='text')"
+          />
+        </p>
+      </div>
+      
+      <div class="block">
+        <p>
+          <input class="input" type="url" id="imageUrl" placeholder="image URL" />
+        </p>
+      </div>
+
+      <button id="addCityButton" class="button is-warning is-pulled-right">
+        Add location
+      </button>
+      
+      <!-- Table of inputed cities -->
+      <div id="cities">
+
+
+        <table class="table is-hoverable is-fullwidth">
+          <thead>
+            <tr>
+              <th class="cityName">City</th>
+              <th class="countryName">Country</th>
+              <th class="dateOfArrival">Date of Arrival</th>
+              <th class="dateOfDeparture">Date of Departure</th>
+            </tr>
+  
+          </thead>
+
+          <tbody id="citiesTable">
+            
+            
+
+
+          </tbody>
+  
+        </table>    
+
+      </div>
+    
+  </body>
+      <script src="index.js"></script>
+      <script src="create-city.js"></script>
+      
+
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Travel Blog</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/4b9f59c82b.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
+  </head>
+  <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="#"
+          ><i class="fa-regular fa-compass fa-2xl"></i>
+        </a>
+        <h1 class="navbar-item is-size-4">My Travel Blog</h1>
+
+        <a
+          id="burger"
+          role="button"
+          class="navbar-burger"
+          aria-label="menu"
+          aria-expanded="false"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="navbar-menu" id="nav-links">
+        <div class="navbar-end">
+          <a href="#" class="menuLinks navbar-item"
+            ><i class="fa-solid fa-house-user pr-2"></i> Home</a
+          >
+          <a href="addCity.html" class="menuLinks navbar-item"
+            >Add city</a
+          >
+          <a href="about.html" class="menuLinks navbar-item"
+            >The traveler
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div id="mainWrapper">
+      <div class="columns is-desktop">
+        <!-- Cities cards column-->
+
+        <div class="column" id="my-cards-column">
+
+        </div>
+        <!--End cards column-->
+
+        <!-- <div class="column"> -->
+        <!-- City detail column -->
+
+        <div id="my-cards-column" class="column">
+          <div id="city-detail-parent">
+
+          </div>
+
+          <div id="map-container">
+            <div class="city-map" id="map">
+              <!-- <img src="/project-v2/img/NY map.png" alt="NYC map" /> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <!--End Main Wrapper-->
+
+  </body>
+
+  
+  <script src="index.js"></script>
+  <script src="create-card.js"></script>
+  <script src="details.js"></script>
+  <script>
+    function showMapBox(lo, la) {
+      mapboxgl.accessToken =
+        "pk.eyJ1IjoiaHdzYW5jaGV6IiwiYSI6ImNsY29pdmxrazFqcHkzcHA4dXBnYmdiYWgifQ.9VHhEbISmVUsxq_GY8OsZA";
+      const map = new mapboxgl.Map({
+        container: "map", // container ID
+        // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+        style: "mapbox://styles/mapbox/streets-v12", // style URL
+        center: [lo, la], // starting position [lng, lat]
+        zoom: 9, // starting zoom
+      });
+      console.log("longitude and lattitude: ");
+      console.log(lon);
+      console.log(lat);
+      console.log(map);
+    }
+
+    function getCoordinates(city) {
+      return fetch(
+        // `http://api.openweathermap.org/geo/1.0/direct?q=new+orleans&limit=1&appid=${MY_API_KEY}`
+        `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=3a42576b87aa5574c7be70803ff1f679`
+      )
+        .then((response) => {
+          return response.json();
+        })
+        .then((cityGeoLoc) => {
+          console.log("cityGeoLoc[0].lon : ");
+          console.log(cityGeoLoc[0].lon);
+
+          lon = cityGeoLoc[0].lon;
+          lat = cityGeoLoc[0].lat;
+        });
+    }
+
+    // const MY_API_KEY = "3a42576b87aa5574c7be70803ff1f679";
+    let lon = -74;
+    let lat = 40.7;
+    showMapBox(lon, lat);
+    document.querySelectorAll("div.my-card").forEach((card) => {
+      card.addEventListener("click", (event) => {
+        console.log("Card Clicked!!!!");
+
+        let cityName = String(event.currentTarget.dataset.cityName);
+        console.log("Name of city clicked: ");
+        console.log(cityName);
+        getCoordinates(cityName).then((result) => {
+          console.log("longitude and lattitude from Event Listener!!!: ");
+          console.log(lon);
+          console.log(lat);
+          console.log("Result: ");
+          console.log(result);
+          showMapBox(lon, lat);
+        });
+      });
+    });
+  </script>
+</html>

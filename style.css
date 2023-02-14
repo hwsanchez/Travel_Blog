@@ -1,0 +1,208 @@
+
+.my-card {
+  background-color: white;
+  border: 1px solid rgb(180, 180, 180);
+  border-radius: 0.25rem;
+
+  display: flex;
+  max-width: 700px;
+  /* max-height: 200px; */
+  margin: 1rem;
+
+  overflow: hidden;
+}
+
+/* .my-card:hover>.my-card-image>background-image {
+  transform: scale(1.025);
+} */
+
+.my-card:hover {
+  border: 1px solid black;
+  border-radius: 0.25 rem;
+  cursor: pointer;
+  transform: scale(1.025);
+}
+
+.my-card.card-shadow {
+  border: none;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.my-card-right {
+  padding: 1rem;
+  width: 50%;
+}
+
+.my-card-header {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.my-card-subtitle {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.my-card-body {
+  font-size: 0.8rem;
+  padding-bottom: 30px;
+}
+
+.my-card-footer {
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 530;
+  font-family: sans-serif;
+}
+
+.my-card-image {
+  background-color: aqua;
+  overflow: hidden;
+        display: block;
+        width: 50%;
+        max-height: 400px;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        object-position: left;
+        position: relative;
+  /* width: 50%;
+  background-image: url("https://res.klook.com/image/upload/Mobile/City/szhx3ytpgfnhpbmsngk0.jpg");
+  background-size: cover;
+  background-position-x: 100%;
+  background-position-y: 100%; */
+  /* padding: 1rem; */
+}
+
+
+      .my-card-image > img {
+
+        width: 100%;
+        height: 100%;
+   
+      } 
+
+ /* CSS for addCit */
+
+ .form-wrapper {
+   max-width: 75%;
+   margin: 10px auto;
+   padding-top: 40px;
+   /* background-color: aqua; */
+ }
+
+ .city-map {
+   height: 300px;
+   width: 90%;
+   margin: 0 auto;
+   border: 1px solid grey;
+   position: relative;
+ }
+
+ .traveler-wrapper {
+  /* background-color: blueviolet; */
+  padding: 30px;
+  margin: 0 auto;
+ }
+
+ .iconOpenWeather {
+  margin-bottom: 0 px;
+ }
+
+ /* @media screen and (min-width:1023px) {
+  .city-map {
+    height: 300px;
+    width: 600px;
+  }
+  
+ } */
+ #traveler-image {
+  float: left;
+  width: 30%;
+  padding-right: 20px;
+  
+ }
+
+ #traveler-image > img {
+border: 1px solid grey;
+ }
+
+#mainWrapper {
+  margin: 0 auto;
+  padding-top: 10px;
+  /* background-color: aqua; */
+}
+
+ #cities {
+   padding-top: 80px;
+   /* background-color: blueviolet; */
+ }
+
+ #my-cards-column {
+  /* background-color: brown; */
+ 
+ }
+
+ #city-detail-parent {
+  /* background-color: aqua; */
+ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+ }
+
+ #city-detail-child {
+  margin-top: 1rem;
+  width: 90%;
+ }
+
+ #detail-photo {
+  position: relative;
+ }
+
+ #detail-photo > img {
+    border: 1px solid black;
+ }
+
+ #image-weather {
+  position: absolute;
+  bottom: 10px;
+  right: 16px;
+  font-size: 16px;
+  color: white;
+  font-weight: 600;
+
+ }
+
+ #city-detail-content {
+margin-top: 1rem;
+
+ }
+
+#city-map > img {
+    border: 1px solid black;
+ 
+}
+
+#map-container {
+  display: flex;
+  justify-content: center;
+    align-items: center;
+}
+
+
+
+#detail-with-dates {
+  padding-top: 5px;
+}
+
+#my-travel-dates {
+  font-size: 14px;
+  padding-bottom: 10px;
+}
+
+
+
+
+
+
